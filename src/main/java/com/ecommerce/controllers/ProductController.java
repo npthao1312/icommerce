@@ -57,10 +57,11 @@ public class ProductController {
 		}
 	}
 
-	@Operation(summary = "Create a product", security = { @SecurityRequirement(name = "bearer-key") }, tags = {
-			"Product" })
+	@Operation(summary = "Create a product", tags = { "Product" })
+//	@Operation(summary = "Create a product", security = { @SecurityRequirement(name = "bearer-key") }, tags = {
+//			"Product" })
+//	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiResponses(value = @ApiResponse(description = "successful operation"))
-	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	@PostMapping(value = { "" })
 	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
 		try {
@@ -72,6 +73,8 @@ public class ProductController {
 		}
 	}
 
+	@Operation(summary = "Get a product", tags = { "Product" })
+	@ApiResponses(value = @ApiResponse(description = "successful operation"))
 	@GetMapping("/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable("id") long id) {
 		Optional<Product> productData = productRepository.findById(id);
@@ -83,10 +86,11 @@ public class ProductController {
 		}
 	}
 
-	@Operation(summary = "Delete a product", security = { @SecurityRequirement(name = "bearer-key") }, tags = {
-			"Product" })
+	@Operation(summary = "Delete a product", tags = { "Product" })
+//	@Operation(summary = "Delete a product", security = { @SecurityRequirement(name = "bearer-key") }, tags = {
+//			"Product" })
+//	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiResponses(value = @ApiResponse(description = "successful operation"))
-	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<HttpStatus> deleteProduct(@PathVariable("id") long id) {
 		try {
@@ -97,10 +101,12 @@ public class ProductController {
 		}
 	}
 
-	@Operation(summary = "Delete all product", security = { @SecurityRequirement(name = "bearer-key") }, tags = {
-			"Product" })
+	@Operation(summary = "Delete all product", tags = {
+	"Product" })
+//	@Operation(summary = "Delete all product", security = { @SecurityRequirement(name = "bearer-key") }, tags = {
+//			"Product" })
+//	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiResponses(value = @ApiResponse(description = "successful operation"))
-	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	@DeleteMapping("")
 	public ResponseEntity<HttpStatus> deleteAllProducts() {
 		try {
