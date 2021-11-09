@@ -1,3 +1,8 @@
+## Simple Ecommerce App
+
+## Swagger
+Access Swagger endpoints at `http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/`
+
 ## Configure Spring Datasource, JPA, App properties
 Open `src/main/resources/application.properties`
 

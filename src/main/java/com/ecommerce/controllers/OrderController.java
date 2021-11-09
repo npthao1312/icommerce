@@ -56,7 +56,7 @@ public class OrderController {
 
 	@Operation(summary = "Add a product to a order", tags = { "Order" })
 	@ApiResponses(value = @ApiResponse(description = "successful operation"))
-	@PutMapping("/orders/{orderId}/products/{productId}")
+	@PutMapping("/{orderId}/products/{productId}")
 	public ResponseEntity<Order> addProduct(@PathVariable("orderId") Long orderId,
 			@PathVariable("productId") Long productId) throws JsonMappingException, JsonProcessingException {
 		Optional<Order> orderData = orderRepository.findById(orderId);
